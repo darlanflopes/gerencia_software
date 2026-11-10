@@ -106,7 +106,7 @@ class BancoService:
         self.debito(origem, valor)
         self.credito(destino, valor)
 
-        # Regra atualizada da Conta Bônus para Transferências Recebidas: 1 ponto a cada R$ 150,00
+        # Regra atualizada da Conta Bônus para Transferências Recebidas: 1 ponto a cada R$ 150,00 reais
         if isinstance(self.contas[destino], ContaBonus):
             pontos_ganhos = int(valor // 150)
             self.contas[destino].pontos += pontos_ganhos
