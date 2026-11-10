@@ -100,6 +100,7 @@ class BancoService:
             if conta_origem.saldo - valor < 0:
                 raise ValueError("Saldo insuficiente na conta de origem.")
 
+        # Realiza o débito na origem e o crédito no destino
         self.debito(origem, valor)
         self.credito(destino, valor)
 
