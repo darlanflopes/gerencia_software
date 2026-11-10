@@ -29,10 +29,12 @@ class BancoService:
     def __init__(self):
         self.contas = {}  # Armazena as contas em memória
 
-    def cadastrar_conta_simples(self, numero: str) -> bool:
+    def cadastrar_conta_simples(self, numero: str, saldo_inicial: float = 0.0) -> bool:
         if numero in self.contas:
             return False
-        self.contas[numero] = Conta(numero)
+        conta = Conta(numero)
+        conta.saldo = saldo_inicial  # Informa o saldo inicial na criação
+        self.contas[numero] = conta
         return True
 
     def cadastrar_conta_bonus(self, numero: str) -> bool:
